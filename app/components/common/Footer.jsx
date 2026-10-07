@@ -1,7 +1,15 @@
+'use client';
+import { useState, useEffect } from 'react';
 import Container from './Container';
 import { Sparkles, MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
+  const [year, setYear] = useState(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-800/80">
       <Container className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -66,7 +74,7 @@ export default function Footer() {
 
       <div className="mt-12 pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
         <Container className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Orthodontics. All rights reserved.</p>
+          <p>© {year} Orthodontics. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-slate-400">Privacy Policy</a>
             <a href="#" className="hover:text-slate-400">Terms of Service</a>
